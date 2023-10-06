@@ -1,0 +1,167 @@
+---
+title: "Title"
+title-block-banner: "#000061"
+subtitle: "Subtitle"
+description: "Description"
+date: last-modified
+date-format: "YYYY-MM-DD"
+mainfont: Figtree
+sansfont: Georgia
+footnotes-hover: true
+reference-location: margin
+lang: en
+number-sections: false
+crossref:
+  chapters: true
+author:
+  - name: Osquar Osquarsson
+    orcid: 0000-0002-4649-3651
+    email: osquar@kth.se
+    url: https://kth.se
+    affiliations:
+      - name: KTH Library
+        address: Osquars backe 30
+        city: Stockholm
+        postal-code: 100 00
+        url: kth.se/biblioteket
+highlight-style: pygments
+fig-cap-location: top
+format:
+  kth-quarto-html: default
+---
+
+## Quarto
+
+Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <https://quarto.org>.
+
+## Code
+
+When you click the **Render** button a document will be generated that includes both content and the output of embedded code. You can embed code like this:
+
+```{r}
+1 + 1
+```
+
+\newpage
+You can add options to executable code like this (the option `#| echo:false` is used at the top of the code chunk). 
+
+The `echo: false` option disables the printing of code (only output is displayed), so the chunk is not visible.
+
+
+```{r}
+#| echo: false
+2 * 2
+```
+
+## Packages
+
+Snippets of code using different languages can be included. Here we make a set of R packages available for usage in R code chunks:
+
+```{r}
+#| label: load-pkgs
+#| code-summary: "Packages"
+#| code-fold: show
+#| message: false
+#| echo: true
+
+pkgs <- "
+DT bslib leaflet plotly htmltools dplyr purrr
+"
+
+import <- function(x)
+ x |> trimws() |> strsplit("\\s+") |> unlist() |>
+  lapply(function(x) library(x, character.only = TRUE)) |>
+  invisible()
+
+pkgs |> import()
+
+```
+
+## Custom CSS - Logo example
+
+A chunk used here includes a KTH logo by generating a custom `styles.css` for the banner, which can be included in the quarto document.
+
+```{r}
+
+# install the "ktheme" package which provides fonts and styling assets for KTH
+# for example for use in static and dynamic plots
+
+if (!"ktheme" %in% installed.packages())
+  devtools::install_github("KTH-Library/ktheme")
+
+iuri <- knitr::image_uri(system.file(package="ktheme",
+  "extdata", "_extensions", "ktheme", "img", "kth_logo_white.png"))
+
+# htmltools::img(
+#   src = iuri, 
+#   alt = 'logo', 
+#   style = 'position:absolute; top:0; right:0; padding:10px;',
+#   height = '120px'
+# )
+
+styles_css <- 
+".quarto-title-block .quarto-title-banner {
+  background-image: url('%s');
+  background-origin: content-box;
+  background-size: 120px;
+  background-position: right;
+  background-position-y: bottom;
+  background-repeat: no-repeat;
+  padding-left: 10px;
+  padding-right: 30px;
+  padding-top: 30px;
+  padding-bottom: 30 px;
+}" |> sprintf(iuri)
+
+message("Wrote background logo styles to styles.css")
+readr::write_file(styles_css, "styles.css")
+
+```
+
+## Plots
+
+We can include static or dynamic plots, for example using `ggplot`.
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)
+library(ktheme)
+library(dplyr)
+library(purrr)
+library(knitr)
+library(kableExtra)
+library(RColorBrewer)
+library(scales)
+```
+
+This is an example of a static plot using KTH graphical profile colors from [ktheme](https://github.com/KTH-Library/ktheme).
+
+```{r}
+#| echo: false
+#| fig-width: 9
+
+library(dplyr)
+library(ggplot2)
+
+p <- 
+  count(mpg, class) |> 
+  ggplot(aes(class, n)) +
+  geom_col(aes(fill = class)) +
+  geom_text(aes(label = paste0("n=", n)), nudge_y = 3) +
+  labs(
+    x = "Vehicle category", y="Observations (n)",
+    title = "Seminal ggplot2 bar chart example",
+    subtitle = "A plot that is only useful for demonstration purposes",
+    caption = "A demo of theme_kth_neo") +
+  theme_kth_neo() +
+  scale_fill_kth() +
+  theme(axis.text.y=element_blank())
+
+p
+```
+
+This is an example of a interactive variant of the same plot.
+
+```{r}
+
+plotly::ggplotly(p)
+```

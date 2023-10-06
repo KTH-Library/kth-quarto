@@ -1,0 +1,26 @@
+title: KTH Quarto Template
+author: KTH-Library
+version: 0.0.1
+quarto-required: ">=1.4.0"
+contributes:
+  formats:
+    html:
+      toc: true
+      toc-location: right
+      toc-title: Content
+      toc-depth: 5
+      fontcolor: black
+      code-fold: true
+      html-math-method: katex
+      embed-resources: true
+      anchor-sections: true
+      smooth-scroll: true
+      link-external-icon: true
+      link-external-newwindow: true
+      link-external-filter: ^(?:http:|https:)
+      page-layout: article
+      css: 
+        - bootstrap.css
+        - boostrap-icons.css
+        - styles.css
+#      theme: [yeti, custom.scss]
