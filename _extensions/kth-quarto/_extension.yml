@@ -15,12 +15,19 @@ contributes:
       embed-resources: true
       anchor-sections: true
       smooth-scroll: true
+      linkcolor: "#004791"
       link-external-icon: true
       link-external-newwindow: true
       link-external-filter: ^(?:http:|https:)
       page-layout: article
+      include-in-header:
+        - text: '<link rel="shortcut icon" type="image/svg+xml" href="favicon.svg">'
+        - kth-favicon.css
+        - kth-figtree.css
       css: 
         - bootstrap.css
         - boostrap-icons.css
-        - styles.css
+        - kth-banner.css
+      format-resources:
+        - favicon.png
 #      theme: [yeti, custom.scss]

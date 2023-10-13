@@ -5,7 +5,7 @@ subtitle: "Subtitle"
 description: "Description"
 date: last-modified
 date-format: "YYYY-MM-DD"
-mainfont: Figtree
+mainfont: figtree
 sansfont: Georgia
 footnotes-hover: true
 reference-location: margin
@@ -26,6 +26,9 @@ author:
         url: kth.se/biblioteket
 highlight-style: pygments
 fig-cap-location: top
+#include-in-header:
+#  - text:|
+#    <link rel="shortcut icon" type="image/svg+xml" href="favicon.svg">
 format:
   kth-quarto-html: default
 ---
@@ -77,47 +80,6 @@ pkgs |> import()
 
 ```
 
-## Custom CSS - Logo example
-
-A chunk used here includes a KTH logo by generating a custom `styles.css` for the banner, which can be included in the quarto document.
-
-```{r}
-
-# install the "ktheme" package which provides fonts and styling assets for KTH
-# for example for use in static and dynamic plots
-
-if (!"ktheme" %in% installed.packages())
-  devtools::install_github("KTH-Library/ktheme")
-
-iuri <- knitr::image_uri(system.file(package="ktheme",
-  "extdata", "_extensions", "ktheme", "img", "kth_logo_white.png"))
-
-# htmltools::img(
-#   src = iuri, 
-#   alt = 'logo', 
-#   style = 'position:absolute; top:0; right:0; padding:10px;',
-#   height = '120px'
-# )
-
-styles_css <- 
-".quarto-title-block .quarto-title-banner {
-  background-image: url('%s');
-  background-origin: content-box;
-  background-size: 120px;
-  background-position: right;
-  background-position-y: bottom;
-  background-repeat: no-repeat;
-  padding-left: 10px;
-  padding-right: 30px;
-  padding-top: 30px;
-  padding-bottom: 30 px;
-}" |> sprintf(iuri)
-
-message("Wrote background logo styles to styles.css")
-readr::write_file(styles_css, "styles.css")
-
-```
-
 ## Plots
 
 We can include static or dynamic plots, for example using `ggplot`.
@@ -164,4 +126,81 @@ This is an example of a interactive variant of the same plot.
 ```{r}
 
 plotly::ggplotly(p)
+```
+
+## Embeddable Style Assets HTML/SVG
+
+Logo, favicon, webfonts for KTH are available through the `ktheme` package. This section shows usage.
+
+### Logos
+
+Scalable vector graphics files for the KTH logo can be embedded using `ktheme::kthb_b64_logo_svg()`. 
+
+Increasing the zoom, the logos will still look good (SVG means no raster image format).
+
+```{r}
+#| results: asis
+
+library(ktheme)
+
+h <- 120
+
+kth_b64_logo_svg(variant = "blue", height = h)
+
+kth_b64_logo_svg(variant = "black", height = h)
+
+# styling the white logo with custom CSS to provide padding and blue background
+
+h <- 144
+
+logo_css <- 
+"background-size: %spx;
+background-position: center;
+background-position-y: center;
+background-repeat: no-repeat;
+padding-left: %spx;
+padding-right: %spx;
+padding-top: %spx;
+padding-bottom: %spx;
+background-color:%s;" |> 
+  sprintf(h, h/10, h/10, h/10, h/10, ktheme::kth_colors("darkblue")) |> 
+  gsub(pattern = "\\s+", replacement = "")
+
+kth_b64_logo_svg(variant = "white", 
+  height = h, 
+  style = logo_css
+)
+
+```
+
+### Banner CSS
+
+A chunk used here includes a KTH logo by generating a custom `kth-banner.css` for the top banner, which then can be included in the kth-quarto template.
+
+```{r}
+#| eval: false
+
+# install the "ktheme" package which provides fonts and styling assets for KTH
+# for example for use in static and dynamic plots
+
+if (!"ktheme" %in% installed.packages())
+  devtools::install_github("KTH-Library/ktheme")
+
+kth_banner_css <- 
+".quarto-title-block .quarto-title-banner {
+  background-image: url('%s');
+  background-origin: content-box;
+  background-size: 120px;
+  background-position: right;
+  background-position-y: bottom;
+  background-repeat: no-repeat;
+  padding-left: 10px;
+  padding-right: 30px;
+  padding-top: 30px;
+  padding-bottom: 30 px;
+}" |> sprintf(ktheme::kth_b64_logo_svg("white", as = "uri"))
+
+readr::write_file(kth_banner_css, "_extensions/kth-quarto/kth-banner.css")
+message("Wrote banner styles")
+
 ```
