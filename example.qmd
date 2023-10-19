@@ -5,8 +5,8 @@ subtitle: "Subtitle"
 description: "Description"
 date: last-modified
 date-format: "YYYY-MM-DD"
-mainfont: Figtree
-sansfont: Georgia
+mainfont: figtree
+sansfont: georgia
 footnotes-hover: true
 reference-location: margin
 lang: en
