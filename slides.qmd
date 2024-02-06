@@ -1,0 +1,50 @@
+---
+title: "Presentation"
+subtitle: "KTH Royal Institute of Technology"
+author: "Osquar Osquarsson"
+date: today
+format: kth-quarto-revealjs
+---
+  
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+# install.packages("devtools")
+library(ktheme)
+library(dplyr)
+library(knitr)
+library(htmltools)
+library(htmlwidgets)
+
+red <- function(txt) 
+  sprintf("<font color='%s'>\n%s\n</font>", tolower(palette_kth()["cerise"]), txt)
+green <- function(txt) 
+  sprintf("<font color='%s'>\n%s\n</font>", tolower(palette_kth()["olive"]), txt)
+
+suppressPackageStartupMessages(library(magick))
+
+```
+
+# Background and progress {data-background=img/bg/kth-6.png data-background-size=cover}
+
+## Agenda {.smaller}
+
+- Status update 
+- Another thing to observe
+- Progress
+- Your **questions and feedback**
+
+# Discussion, Questions, Feedback {data-background=../../../../../img/bg/kth-2.png data-background-size=cover}
+
+## Future work and directions
+
+- More
+- Bullet
+- Points
+
+## Questions and Answers {.smaller}
+
+Please provide your input!
+
+If you prefer to provide written feedback, please use the following [link]().
+
+Thank you for attending!

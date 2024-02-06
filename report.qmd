@@ -24,13 +24,14 @@ author:
         city: Stockholm
         postal-code: 100 00
         url: kth.se/biblioteket
-highlight-style: pygments
 fig-cap-location: top
 #include-in-header:
 #  - text:|
 #    <link rel="shortcut icon" type="image/svg+xml" href="favicon.svg">
 format:
-  kth-quarto-html: default
+  kth-quarto-html:
+    highlight-style: a11y
+
 ---
 
 ## Quarto
@@ -138,6 +139,8 @@ Scalable vector graphics files for the KTH logo can be embedded using `ktheme::k
 
 Increasing the zoom, the logos will still look good (SVG means no raster image format).
 
+::: {layout-ncol=3}
+
 ```{r}
 #| results: asis
 
@@ -172,6 +175,9 @@ kth_b64_logo_svg(variant = "white",
 )
 
 ```
+:::
+
+Logos are also available in raster formats, also "spaced" variants which allow for a safe zone around the logo.
 
 ### Banner CSS
 
