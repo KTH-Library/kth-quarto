@@ -1,6 +1,6 @@
 title: KTH Quarto Template
 author: KTH-Library
-version: 0.0.2
+version: 0.0.3
 quarto-required: ">=1.4.0"
 contributes:
   formats:
@@ -34,7 +34,7 @@ contributes:
 #      theme: [yeti, custom.scss]
     revealjs:
       theme: [default, kth-revealjs.scss]
-      logo: kth_logo_blue.svg
+      logo: img/kth_logo_blue_spaced.png
       footer: | 
         KTH - Royal Institute of Technology
       html-math-method: katex
@@ -42,9 +42,8 @@ contributes:
       anchor-sections: true
       smooth-scroll: true
       title-slide-attributes:
-        data-background-image: kth_logo_blue.png
-        data-background-size: 240px
-        data-background-position: top
+        data-background-image: "img/pattern_sand_wide.png"
+        data-background-size: contain
       preview-links: auto
       include-in-header:
         - text: '<link rel="shortcut icon" type="image/svg+xml" href="favicon.svg">'
