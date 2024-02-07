@@ -24,7 +24,7 @@ suppressPackageStartupMessages(library(magick))
 
 ```
 
-# Background and progress {data-background=_extensions/kth-quarto/img/bg/kth-6.png data-background-size=cover}
+# Background and progress {data-background=_extensions/kth-library/kth-quarto/img/bg/kth-6.png data-background-size=cover}
 
 ## Agenda {.smaller}
 
@@ -33,7 +33,7 @@ suppressPackageStartupMessages(library(magick))
 - Progress
 - Your **questions and feedback**
 
-# Discussion, Questions, Feedback {data-background=_extensions/kth-quarto/img/bg/kth-2.png data-background-size=cover}
+# Discussion, Questions, Feedback {data-background=_extensions/kth-library/kth-quarto/img/bg/kth-2.png data-background-size=cover}
 
 ## Future work and directions
 
