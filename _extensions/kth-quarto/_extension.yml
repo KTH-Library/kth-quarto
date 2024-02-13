@@ -42,8 +42,8 @@ contributes:
       anchor-sections: true
       smooth-scroll: true
       title-slide-attributes:
-        data-background-image: "img/pattern_sand_wide.png"
-        data-background-size: contain
+        data-background-image: "img/pattern_blue_wide.png"
+        data-background-size: 100%
       preview-links: auto
       include-in-header:
         - text: '<link rel="shortcut icon" type="image/svg+xml" href="favicon.svg">'
