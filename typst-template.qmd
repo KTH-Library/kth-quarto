@@ -1,0 +1,41 @@
+---
+title: "Title"
+title-block-banner: "#000061"
+subtitle: "Subtitle"
+description: "Description"
+date: last-modified
+date-format: "YYYY-MM-DD"
+mainfont: Figtree
+sansfont: Georgia
+footnotes-hover: true
+reference-location: margin
+lang: en
+number-sections: false
+crossref:
+  chapters: true
+author:
+  - name: Osquar Osquarsson
+    orcid: 0000-0002-4649-3651
+    email: osquar@kth.se
+    url: https://kth.se
+    affiliations:
+      - name: KTH Library
+        address: Osquars backe 30
+        city: Stockholm
+        postal-code: 100 00
+        url: kth.se/biblioteket
+highlight-style: pygments
+fig-cap-location: top
+format:
+  kth-quarto-typst: default
+---
+
+## Introduction
+
+This example file is authored using [quarto](https://quarto.org) and makes use of style from the KTH graphical profile.
+
+## More Information
+
+You can learn more about controlling the appearance of HTML output here: <https://quarto.org/docs/output-formats/html-basics.
+html>
+

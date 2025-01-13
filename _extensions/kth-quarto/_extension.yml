@@ -1,7 +1,7 @@
 title: KTH Quarto Template
 author: KTH-Library
-version: 0.0.3
-quarto-required: ">=1.4.0"
+version: 0.0.4
+quarto-required: ">=1.6.0"
 contributes:
   formats:
     html:
@@ -52,3 +52,9 @@ contributes:
       format-resources:
         - favicon.svg
         - bootstrap-icons.min.css
+    typst:
+      template-partials:
+        - typst-template.typ
+        - typst-show.typ
+      filters:
+        - kth-quarto.lua
