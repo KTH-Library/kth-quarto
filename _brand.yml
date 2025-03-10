@@ -10,44 +10,50 @@ meta:
 
 logo: 
   images: 
-    icon-color: _extensions/kth-library/kth-quarto/favicon.png
-    wide-color: _extensions/kth-library/kth-quarto/img/kth_logo_blue_spaced.png
-    tall-color: _extensions/kth-library/kth-quarto/img/kth_logo_blue_spaced.png
+    icon-color: _extensions/kth-quarto/favicon.png
+    wide-color: _extensions/kth-quarto/img/kth_logo_blue_spaced.png
+    tall-color: _extensions/kth-quarto/img/kth_logo_blue_spaced.png
   small: icon-color
   medium: wide-color
   large: tall-color
 
 color: 
   palette: 
-    lightblue: "#DEF0FF"
-    lightyellow: "#FFF080"
-    lightgreen: "#C7EBBA"
-    pink: "#FFCCC4"
-    lightteal: "#B2E0E0"
     white: "#fcfcfc"
-    gray100: "#dfdfdf"
-    gray200: "#B7B7BA"
-    gray300: "#7B7B7B"
+    black: "#212121"
+    gray100: "#f2f2f2"
+    gray200: "#ededed"
+    gray300: "#e6e6e6"
     gray400: "#8D8D8D"
     gray500: "#9C9C9C"
-    gray600: "#AAAAAA"
-    gray700: "#65656C"
+    gray600: "#a5a5a5"
+    gray700: "#646464"
     gray800: "#3e3e3e"
-    gray900: "#161616"
-    black: "#212121"
-    bluelink: "#036eb8"
+    gray900: "#323232"
     blue: "#004791"
+    bluelink: "#036eb8"
     indigo: "#000061"
+    darkblue: "#003975"
+    digitalblue: "#221dd9"
+    lightblue: "#DEF0FF"
     purple: "#78001A"
-    red: "#E86A58"
+    red: "#c7321d"
+    lightred: "#fad6d6"
+    darkred: "#bf2c17"
+    darkerred: "#962312"
     orange: "#A65900"
     yellow: "#FFBE00"
-    green: "#4DA061"
+    green: "#3d784a"
+    lightgreen: "#d8ffe7"
+    darkgreen: "#366f43"
+    darkergreen: "#264f30"
     teal: "#339C9C"
     cyan: "#6298D2"
     sand: "#EBE5E0"
     gray: "#A5A5A5"
-
+    lightyellow: "#FFF080"
+    pink: "#FFCCC4"
+    lightteal: "#B2E0E0"
   primary: blue
   success: green
   warning: yellow

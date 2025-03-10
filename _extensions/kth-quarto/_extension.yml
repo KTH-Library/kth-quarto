@@ -20,17 +20,18 @@ contributes:
       link-external-newwindow: true
       page-layout: article
       include-in-header:
-        - text: '<link rel="shortcut icon" type="image/svg+xml" href="favicon.svg">'
         - kth-favicon.css
+        - text: '<link rel="shortcut icon" type="image/svg+xml" href="favicon.svg">'
         - kth-figtree.css
-      css: 
-        - bootstrap.min.css
-        - boostrap-icons.min.css
-        - kth-banner.css
+        - kth-georgia.css
       format-resources:
-        - favicon.png
         - favicon.svg
+      css:
+        - bootstrap.min.css
         - bootstrap-icons.min.css
+        - kth-banner.css
+        - figtree.css
+        - georgia.css
 #      theme: [yeti, custom.scss]
     revealjs:
       theme: [default, kth-revealjs.scss]
@@ -46,12 +47,18 @@ contributes:
         data-background-size: 100%
       preview-links: auto
       include-in-header:
-        - text: '<link rel="shortcut icon" type="image/svg+xml" href="favicon.svg">'
         - kth-favicon.css
+        - text: '<link rel="shortcut icon" type="image/svg+xml" href="favicon.svg"><link rel="stylesheet" href="bootstrap-icons.min.css">'
         - kth-figtree.css
+        - kth-georgia.css
       format-resources:
         - favicon.svg
+      css:
+        - bootstrap.min.css
         - bootstrap-icons.min.css
+        - kth-banner.css
+        - figtree.css
+        - georgia.css
     typst:
       template-partials:
         - typst-template.typ

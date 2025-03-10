@@ -6,7 +6,7 @@ description: "Description"
 date: last-modified
 date-format: "YYYY-MM-DD"
 mainfont: figtree
-sansfont: Georgia
+sansfont: georgia
 footnotes-hover: true
 reference-location: margin
 lang: en
@@ -14,9 +14,9 @@ number-sections: false
 crossref:
   chapters: true
 author:
-  - name: Osquar Osquarsson
+  - name: Quristina Osquarsson
     orcid: 0000-0002-4649-3651
-    email: osquar@kth.se
+    email: quristina@kth.se
     url: https://kth.se
     affiliations:
       - name: KTH Library

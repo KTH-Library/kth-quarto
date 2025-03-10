@@ -14,7 +14,7 @@ number-sections: false
 crossref:
   chapters: true
 author:
-  - name: Osquar Osquarsson
+  - name: Quristina Osquarsson
     orcid: 0000-0002-4649-3651
     email: osquar@kth.se
     url: https://kth.se
@@ -36,6 +36,5 @@ This example file is authored using [quarto](https://quarto.org) and makes use o
 
 ## More Information
 
-You can learn more about controlling the appearance of HTML output here: <https://quarto.org/docs/output-formats/html-basics.
-html>
+You can learn more about controlling the appearance of HTML output [here: https://quarto.org/docs/output-formats/typst.html](https://quarto.org/docs/output-formats/typst.html).
 

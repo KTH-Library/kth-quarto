@@ -7,12 +7,12 @@ $web-font-path: "https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,40
   @import url($web-font-path);
 }
 
-$web-font-figtree: "kth-figtree.css" !default;
+$web-font-figtree: "../../../../../_extensions/kth-quarto/figtree.css" !default;
 @if $web-font-figtree {
   @import url($web-font-figtree);
 }
 
-$web-font-georgia: "georgia.css" !default;
+$web-font-georgia: "../../../../../_extensions/kth-quarto/georgia.css" !default;
 @if $web-font-georgia {
   @import url($web-font-georgia);
 }
@@ -31,26 +31,34 @@ $theme: "kth" !default;
 //
 
 $white:    #fcfcfc !default;
-$gray-100: #dfdfdf !default;
-$gray-200: #B7B7BA !default;
-$gray-300: #7B7B7B !default;
+$gray-100: #f2f2f2 !default;
+$gray-200: #ededed !default;
+$gray-300: #e6e6e6 !default;
 $gray-400: #8D8D8D !default;
 $gray-500: #9C9C9C !default;
-$gray-600: #AAAAAA !default;
-$gray-700: #65656C !default;
+$gray-600: #a5a5a5 !default;
+$gray-700: #646464 !default;
 $gray-800: #3e3e3e !default;
-$gray-900: #161616 !default;
+$gray-900: #323232 !default;
 $black:    #212121 !default;
 
 $blue-link: #036eb8;
 $blue: #004791 !default;
 $indigo: #000061 !default;
+$blue-dark: #003975 !default;
+$blue-digital: #221dd9 !default;
 $purple: #78001A !default;
 $pink: #FFCCC4 !default;
 $red: #E86A58!default;
+$red-light: #fad6d6 !default;
+$red-dark: #bf2c17 !default;
+$red-darker: #962312 !default;
 $orange: #A65900!default;
 $yellow: #FFBE00 !default;
-$green: #4DA061 !default;
+$green: #3d784a !default;
+$green-light: #d8ffe7 !default;
+$green-dark: #366f43 !default;
+$green-darker: #264f30 !default;
 $teal: #339C9C !default;
 $cyan: #6298D2 !default;
 $sand: #EBE5E0 !default;
@@ -328,7 +336,7 @@ h2::after.title {
     width: 120px;
     top: 18px;
     right: -75px;
-    background-image: url("../../../../../kth_logo_blue.png"); /* Better than using an absolute path, though this can't be the best way to include an image! */
+    background-image: url("../../../../../_extensions/kth-quarto/img/kth_logo_blue.png"); /* Better than using an absolute path, though this can't be the best way to include an image! */
     background-repeat: no-repeat;
     background-size: contain;
 }
