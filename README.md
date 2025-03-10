@@ -1,4 +1,12 @@
-# KTH Quarto Format
+# KTH Quarto Formats
+
+[Quarto®](https://quarto.org) is an open-source scientific and technical publishing system
+
+- Publish reproducible, production quality articles, presentations, dashboards, websites, blogs, and books in HTML, PDF, MS Word, ePub, and more.
+- Author using Jupyter notebooks or with plain text markdown in your favorite editor.
+- Create dynamic content with Python, R, Julia, and Observable.
+
+This repository provides a quarto extension which provides a couple of different KTH branded formats along with [starter templates](https://quarto.org/docs/extensions/starter-templates.html).
 
 ## Installing
 
