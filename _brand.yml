@@ -10,9 +10,9 @@ meta:
 
 logo: 
   images: 
-    icon-color: _extensions/KTH-Library/kth-quarto/favicon.png
-    wide-color: _extensions/KTH-Library/kth-quarto/img/kth_logo_blue_spaced.png
-    tall-color: _extensions/KTH-Library/kth-quarto/img/kth_logo_blue_spaced.png
+    icon-color: _extensions/kth-library/kth-quarto/favicon.png
+    wide-color: _extensions/kth-library/kth-quarto/img/kth_logo_blue_spaced.png
+    tall-color: _extensions/kth-library/kth-quarto/img/kth_logo_blue_spaced.png
   small: icon-color
   medium: wide-color
   large: tall-color

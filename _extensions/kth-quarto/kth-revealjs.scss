@@ -7,12 +7,12 @@ $web-font-path: "https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,40
   @import url($web-font-path);
 }
 
-$web-font-figtree: "../../../../../_extensions/kth-quarto/figtree.css" !default;
+$web-font-figtree: "../../../../../_extensions/kth-library/kth-quarto/figtree.css" !default;
 @if $web-font-figtree {
   @import url($web-font-figtree);
 }
 
-$web-font-georgia: "../../../../../_extensions/kth-quarto/georgia.css" !default;
+$web-font-georgia: "../../../../../_extensions/kth-library/kth-quarto/georgia.css" !default;
 @if $web-font-georgia {
   @import url($web-font-georgia);
 }
@@ -336,7 +336,7 @@ h2::after.title {
     width: 120px;
     top: 18px;
     right: -75px;
-    background-image: url("../../../../../_extensions/kth-quarto/img/kth_logo_blue.png"); /* Better than using an absolute path, though this can't be the best way to include an image! */
+    background-image: url("../../../../../_extensions/kth-library/kth-quarto/img/kth_logo_blue.png"); /* Better than using an absolute path, though this can't be the best way to include an image! */
     background-repeat: no-repeat;
     background-size: contain;
 }
