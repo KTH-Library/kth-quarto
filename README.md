@@ -10,12 +10,12 @@ This will install the extension and create an example qmd file that you can use 
 
 ## Examples
 
-Minimal sample document (HTML): [example.qmd](example.qmd), rendered to [example.html](https://raw.githubusercontent.com/KTH-Library/kth-quarto/main/example.html)
+Minimal sample document (HTML): [example.qmd](example.qmd), rendered to [example.html](https://kth-library.github.io/kth-quarto/example.html)
 
-Sample with more features including a styled plot: [report.qmd](report.qmd), rendered to [report.html](https://raw.githubusercontent.com/KTH-Library/kth-quarto/main/report.html)
+Sample with more features including a styled plot: [report.qmd](report.qmd), rendered to [report.html](https://kth-library.github.io/kth-quarto/report.html)
 
-Web slides template: [slides.qmd](slides.qmd), rendered to [slides.html](https://raw.githubusercontent.com/KTH-Library/kth-quarto/main/slides.html)
+Web slides template: [slides.qmd](slides.qmd), rendered to [slides.html](https://kth-library.github.io/kth-quarto/slides.html)
 
-PDF (Typst) sample doc: [typst-template.qmd](typst-template.qmd), rendered to [typst-template.pdf](https://raw.githubusercontent.com/KTH-Library/kth-quarto/main/typst-template.pdf)
+PDF (Typst) sample doc: [typst-template.qmd](typst-template.qmd), rendered to [typst-template.pdf](https://kth-library.github.io/kth-quarto/typst-template.pdf)
 
 
