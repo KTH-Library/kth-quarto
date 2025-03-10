@@ -3,7 +3,7 @@
 ## Installing
 
 ```bash
-quarto use template KTH-Library/kth-quarto
+quarto use template kth-library/kth-quarto
 ```
 
 This will install the extension and create an example qmd file that you can use as a starting place for authoring your content (HTML article, PDF / typst output or web slides / revealjs output).
