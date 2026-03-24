@@ -1,0 +1,229 @@
+---
+title: "KTH Research Metrics"
+subtitle: "Example dashboard — kth-quarto extension"
+brand: _brand.yml
+format:
+  kth-quarto-dashboard: default
+---
+
+```{r}
+#| label: setup
+#| include: false
+
+library(dplyr)
+library(ggplot2)
+library(plotly)
+
+# Synthetic annual publication data
+pubs <- data.frame(
+  year  = 2015:2024,
+  total = c(198, 215, 231, 249, 263, 278, 295, 312, 328, 342),
+  oa    = c( 45,  52,  63,  78,  91, 108, 132, 168, 201, 253)
+)
+
+# Synthetic department data
+depts <- data.frame(
+  Department   = c("Computer Science", "Electrical Eng.", "Mechanical Eng.",
+                   "Mathematics", "Physics", "Chemical Eng.",
+                   "Biotechnology", "Civil Eng.", "Industrial Eng.", "Architecture"),
+  Publications = c(87, 74, 68, 55, 52, 48, 43, 39, 37, 31),
+  Citations    = c(1842, 1367, 1204, 923, 889, 743, 698, 541, 489, 312),
+  `Open Access` = c(72, 58, 49, 44, 41, 35, 33, 28, 24, 18),
+  check.names  = FALSE
+)
+```
+
+# Overview
+
+## Row {height="160px"}
+
+```{r}
+#| content: valuebox
+#| title: "Publications (2024)"
+#| icon: journal-text
+#| color: "#004791"
+342
+```
+
+```{r}
+#| content: valuebox
+#| title: "Open access rate"
+#| icon: unlock
+#| color: "#3f824e"
+"74%"
+```
+
+```{r}
+#| content: valuebox
+#| title: "Active researchers"
+#| icon: people
+#| color: "#036eb8"
+127
+```
+
+```{r}
+#| content: valuebox
+#| title: "Growth vs 2023"
+#| icon: arrow-up-circle
+#| color: "#A65900"
+"+14"
+```
+## Row {height="55%"}
+
+### Publications {width="58%"}
+
+```{r}
+#| label: pub-chart
+#| title: "Publications"
+
+pubs_long <- tidyr::pivot_longer(pubs, c(total, oa),
+  names_to = "type", values_to = "n")
+pubs_long$type <- factor(pubs_long$type,
+  levels = c("total", "oa"),
+  labels = c("Total", "Open access"))
+
+p <- ggplot(pubs_long, aes(year, n, colour = type, group = type)) +
+  geom_line(linewidth = 1.2) +
+  geom_point(size = 2.5) +
+  scale_colour_manual(
+    values = c("Total" = "#004791", "Open access" = "#3f824e")) +
+  scale_x_continuous(breaks = 2015:2024) +
+  labs(x = NULL, y = NULL, colour = NULL) +
+  theme_minimal(base_family = "Figtree") +
+  theme(
+    plot.background  = element_blank(),
+    panel.grid.minor = element_blank(),
+    legend.position  = "bottom",
+    axis.text        = element_text(colour = "#646464")
+  )
+
+ggplotly(p) |>
+  layout(
+    legend        = list(orientation = "h", x = 0, y = -0.15),
+    font          = list(family = "Figtree", color = "#212121"),
+    paper_bgcolor = "rgba(0,0,0,0)",
+    plot_bgcolor  = "rgba(0,0,0,0)",
+    margin        = list(l = 0, r = 40, t = 10, b = 0),
+    yaxis         = list(side = "right", automargin = TRUE)
+  ) |>
+  config(displayModeBar = FALSE)
+```
+
+### Publications by department {width="42%"}
+
+```{r}
+#| label: dept-table
+
+knitr::kable(depts, format = "html",
+  table.attr = 'class="table table-hover table-sm"') |>
+  kableExtra::kable_styling(full_width = TRUE) |>
+  kableExtra::column_spec(3, bold = TRUE, color = "#004791") |>
+  kableExtra::column_spec(4, color = "#3f824e")
+```
+
+## Row {height="25%"}
+
+### {width="33%"}
+
+::: callout-note
+**2024 milestone:** Total publications exceeded 340 for the first time.
+Open access now accounts for 74 % of output.
+:::
+
+### {width="33%"}
+
+::: callout-tip
+Use the **Style Guide** page to see how all callout types and typography
+components are rendered with the kth-quarto theme.
+:::
+
+### {width="34%"}
+
+::: callout-important
+Figures for Q4 2024 are preliminary and subject to revision pending
+final journal indexing.
+:::
+
+# Style Guide
+
+## Row {height="50%"}
+
+### Callout types {width="50%"}
+
+The five Quarto callout types styled via `kth-content.css`:
+
+::: callout-note
+**Note** — `--bs-primary` border (`#004791`). Supplementary information,
+definitions, or things the reader should be aware of.
+:::
+
+::: callout-tip
+**Tip** — `--bs-success` border (`#3f824e`). Best practice suggestions,
+shortcuts, or recommendations.
+:::
+
+::: callout-warning
+**Warning** — KTH orange border (`#A65900`). Caveats or situations
+where the reader should proceed with care.
+:::
+
+::: callout-caution
+**Caution** — also orange. Use for potentially harmful or hard-to-reverse
+actions.
+:::
+
+::: callout-important
+**Important** — `--bs-danger` border (`#d8351e`). Critical information
+the reader must not miss.
+:::
+
+### Typography & code {width="50%"}
+
+#### Headings use KTH blue (`#004791`)
+
+Set via `--bs-heading-color` in `kth-content.css`, overriding the
+pre-compiled Bootswatch value.
+
+##### Body text
+
+Body uses `--bs-body-color: #212121` at `line-height: 1.6`.
+Inline `code snippets` get a light grey background (`#ededed`) and
+`0.9em` size — matching the `@kth/style` prose mixin spec.
+
+The monospace font is **IBM Plex Mono** (embedded woff2):
+
+```r
+model <- lm(Citations ~ Publications, data = depts)
+summary(model)$coefficients
+```
+
+## Row {height="50%"}
+
+### Semantic colour reference {width="60%"}
+
+| Role | CSS variable | Hex | Used in |
+|---|---|---|---|
+| Primary | `--bs-primary` | `#004791` | Buttons, value boxes |
+| Success | `--bs-success` | `#3f824e` | Positive states, tips |
+| Danger | `--bs-danger` | `#d8351e` | Errors, important callouts |
+| Link | `--bs-link-color` | `#036eb8` | Hyperlinks |
+| Body text | `--bs-body-color` | `#212121` | Default text |
+| Headings | `--bs-heading-color` | `#004791` | h1–h6 |
+| Code bg | — | `#ededed` | Inline code background |
+
+### Value box colours {width="40%"}
+
+::: {.valuebox icon="square-fill" color="#004791"}
+primary
+**#004791**
+:::
+
+::: {.valuebox icon="square-fill" color="#3f824e"}
+success
+**#3f824e**
+:::
+
+::: {.valuebox icon="square-fill" color="#d8351e"}
+danger
+**#d8351e**
+:::

@@ -4,3 +4,26 @@
 .Ruserdata
 
 /.luarc.json
+
+# Quarto render artifacts copied to repo root
+/bootstrap*.css
+/bootstrap-icons*.css
+/favicon.png
+/favicon.svg
+/kth-banner.css
+/typst-show.typ
+
+# Quarto cache and output directories
+/.quarto/
+/*_files/
+/_quarto_internal_scss_error.scss
+
+# Test outputs
+/test.html
+/test_files/
+
+# Typst intermediate files
+/typst-show.typ
+/typst/*.typ
+/typst/*.pdf
+dashboard.html
