@@ -111,6 +111,21 @@ main table th.numeric {
   font-variant-numeric: tabular-nums;
 }
 
+/* ─── Quarto Dashboard card tables ───────────────────────────────────────── */
+/* kableExtra injects table-striped regardless of bootstrap_options in the   */
+/* Quarto render context. Override via the Bootstrap 5 CSS custom property   */
+/* rather than fighting the class attribute.                                  */
+/* Borders are removed the same way: transparent border-color beats the      */
+/* table-bordered/default border rules without requiring table-borderless.   */
+.quarto-dashboard .card-body table {
+  --bs-table-striped-bg: transparent;
+  --bs-table-striped-color: inherit;
+}
+.quarto-dashboard .card-body table th,
+.quarto-dashboard .card-body table td {
+  border-color: transparent;
+}
+
 /* ─── Quarto Dashboard value boxes ───────────────────────────────────────── */
 /* KTH brand hex colors passed via #| color: are all dark; force white text   */
 /* so contrast meets WCAG AA regardless of bslib's auto-calculation           */
@@ -120,11 +135,28 @@ main table th.numeric {
 }
 
 /* Fix icon clipping in dashboard value boxes                                 */
-/* quarto-dashboard.scss sets .bi::before { vertical-align: 1em } which      */
-/* raises the glyph ~54px above baseline, clipping against overflow:hidden   */
-/* on .value-box-grid. Reset to baseline so centering works correctly.        */
-.bslib-value-box .value-box-showcase .bi::before {
+/* quarto-dashboard.scss compiles to:                                         */
+/*   .quarto-dashboard .bslib-value-box .value-box-showcase .bi::before      */
+/*   { vertical-align: 1em }   ← specificity (0,0,4,1)                       */
+/* Our selector must match that 4-class chain to win the cascade.             */
+/* The vertical-align shift raises the glyph by ~1em (40-60px at clamp       */
+/* sizes), overflowing the value-box-grid's overflow:hidden boundary.         */
+/* overflow:visible on the grid prevents clipping in both left-center and     */
+/* vertical (narrow container query) reflow modes.                            */
+.quarto-dashboard .bslib-value-box .value-box-showcase .bi::before {
   vertical-align: 0;
+}
+.quarto-dashboard .bslib-value-box .value-box-grid {
+  overflow: visible;
+}
+
+/* Prevent long value-box titles from wrapping to a second line, which       */
+/* shifts the icon upward past the card top in left-center layout mode.      */
+/* Truncate with ellipsis rather than clipping hard.                         */
+.quarto-dashboard .bslib-value-box .value-box-title {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 /* ─── Quarto Dashboard navbar ─────────────────────────────────────────────── */
