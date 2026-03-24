@@ -24,6 +24,8 @@ Sample with more features including a styled plot: [report.qmd](report.qmd), ren
 
 Web slides template: [slides.qmd](slides.qmd), rendered to [slides.html](https://kth-library.github.io/kth-quarto/slides.html)
 
+Dashboard template: [dashboard.qmd](dashboard.qmd), rendered to [dashboard.html](https://kth-library.github.io/kth-quarto/dashboard.html)
+
 PDF (Typst) sample doc: [typst-template.qmd](typst-template.qmd), rendered to [typst-template.pdf](https://kth-library.github.io/kth-quarto/typst-template.pdf)
 
 

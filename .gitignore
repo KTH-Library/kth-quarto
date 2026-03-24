@@ -26,4 +26,4 @@
 /typst-show.typ
 /typst/*.typ
 /typst/*.pdf
-dashboard.html
+**/*.quarto_ipynb
