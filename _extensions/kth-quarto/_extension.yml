@@ -3,6 +3,9 @@ author: KTH-Library
 version: 0.0.4
 quarto-required: ">=1.6.0"
 contributes:
+  metadata:
+    project:
+      brand: brand.yml
   formats:
     html:
       toc: true
@@ -22,8 +25,6 @@ contributes:
       include-in-header:
         - kth-favicon.css
         - text: '<link rel="shortcut icon" type="image/svg+xml" href="favicon.svg">'
-        - kth-figtree.css
-        - kth-georgia.css
       format-resources:
         - favicon.svg
       css:
@@ -32,11 +33,12 @@ contributes:
         - kth-banner.css
         - figtree.css
         - georgia.css
-#      theme: [yeti, custom.scss]
+        - ibm-plex-mono.css
+        - kth-content.css
     revealjs:
       theme: [default, kth-revealjs.scss]
       logo: img/kth_logo_blue_spaced.png
-      footer: | 
+      footer: |
         KTH - Royal Institute of Technology
       html-math-method: katex
       embed-resources: true
@@ -49,8 +51,6 @@ contributes:
       include-in-header:
         - kth-favicon.css
         - text: '<link rel="shortcut icon" type="image/svg+xml" href="favicon.svg"><link rel="stylesheet" href="bootstrap-icons.min.css">'
-        - kth-figtree.css
-        - kth-georgia.css
       format-resources:
         - favicon.svg
       css:
@@ -59,6 +59,23 @@ contributes:
         - kth-banner.css
         - figtree.css
         - georgia.css
+        - ibm-plex-mono.css
+    dashboard:
+      embed-resources: true
+      scrolling: true
+      logo: img/kth_logo_white.svg
+      include-in-header:
+        - kth-favicon.css
+        - text: '<link rel="shortcut icon" type="image/svg+xml" href="favicon.svg">'
+      format-resources:
+        - favicon.svg
+        - img/kth_logo_white.svg
+      css:
+        - kth-banner.css
+        - figtree.css
+        - georgia.css
+        - ibm-plex-mono.css
+        - kth-content.css
     typst:
       template-partials:
         - typst-template.typ

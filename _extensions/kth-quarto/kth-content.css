@@ -1,0 +1,151 @@
+/* kth-content.css — KTH brand corrections and document content styling
+ *
+ * Targets:
+ *  - Bootstrap CSS custom property corrections (works for both HTML and Dashboard)
+ *  - Document prose, callout blocks, and table styling (scoped to main)
+ *  - Quarto Dashboard navbar alignment with @kth/style theme-default
+ */
+
+/* ─── Bootstrap variable corrections ─────────────────────────────────────── */
+/* Override values that were wrong in the pre-compiled bootstrap.min.css      */
+:root {
+  --bs-danger:            #d8351e;
+  --bs-danger-rgb:        216, 53, 30;
+  --bs-success:           #3f824e;
+  --bs-success-rgb:       63, 130, 78;
+  --bs-body-color:        #212121;
+  --bs-body-line-height:  1.6;
+  --bs-heading-color:     #004791;
+  --bs-link-color:        #036eb8;
+  --bs-link-color-rgb:    3, 110, 184;
+  --bs-code-color:        #212121;
+}
+
+/* ─── Typography ──────────────────────────────────────────────────────────── */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  line-height: 1.15;
+  color: #004791;
+}
+
+/* ─── Prose content ───────────────────────────────────────────────────────── */
+/* Scoped to Quarto's main content area to avoid affecting nav/sidebar        */
+main p {
+  margin-block: 1.25rem;
+}
+
+main li {
+  margin-block: 0.375rem;
+}
+
+code:not(pre *) {
+  background-color: #ededed;
+  padding: 0.125rem 0.375rem;
+  border-radius: 0.2em;
+  font-size: 0.9em;
+}
+
+/* ─── Callout colors (Quarto callout blocks) ──────────────────────────────── */
+div.callout-note.callout {
+  border-left-color: #004791;
+}
+div.callout-note.callout .callout-header {
+  background-color: #e0edfc;
+}
+
+div.callout-tip.callout {
+  border-left-color: #3f824e;
+}
+div.callout-tip.callout .callout-header {
+  background-color: #d8ffe7;
+}
+
+div.callout-warning.callout {
+  border-left-color: #A65900;
+}
+div.callout-warning.callout .callout-header {
+  background-color: #fff3cd;
+}
+
+div.callout-caution.callout {
+  border-left-color: #A65900;
+}
+div.callout-caution.callout .callout-header {
+  background-color: #fff3cd;
+}
+
+div.callout-important.callout {
+  border-left-color: #d8351e;
+}
+div.callout-important.callout .callout-header {
+  background-color: #fad6d6;
+}
+
+/* ─── Tables ──────────────────────────────────────────────────────────────── */
+.kth-table,
+main table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+main table thead th,
+main table tfoot th {
+  background-color: #ededed;
+  font-weight: 700;
+}
+
+main table tbody tr + tr td,
+main table tbody tr + tr th {
+  border-top: 1px solid #a5a5a5;
+}
+
+main table th,
+main table td {
+  padding: 0.375rem 0.75rem;
+  text-align: left;
+}
+
+main table td.numeric,
+main table th.numeric {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ─── Quarto Dashboard value boxes ───────────────────────────────────────── */
+/* KTH brand hex colors passed via #| color: are all dark; force white text   */
+/* so contrast meets WCAG AA regardless of bslib's auto-calculation           */
+.bslib-value-box .value-box-area,
+.bslib-value-box .value-box-showcase {
+  color: #fcfcfc;
+}
+
+/* Fix icon clipping in dashboard value boxes                                 */
+/* quarto-dashboard.scss sets .bi::before { vertical-align: 1em } which      */
+/* raises the glyph ~54px above baseline, clipping against overflow:hidden   */
+/* on .value-box-grid. Reset to baseline so centering works correctly.        */
+.bslib-value-box .value-box-showcase .bi::before {
+  vertical-align: 0;
+}
+
+/* ─── Quarto Dashboard navbar ─────────────────────────────────────────────── */
+/* Matches @kth/style theme-inverse: dark navy header with white text/logo,   */
+/* as used on www.kth.se top navigation.                                       */
+/* --color-header: #000061 (marine), --color-on-header: #fcfcfc (white)       */
+.navbar.slim {
+  background-color: #000061 !important;
+}
+.navbar.slim .navbar-brand,
+.navbar.slim .navbar-title,
+.navbar.slim .nav-link {
+  color: #fcfcfc !important;
+}
+.navbar.slim .nav-link:hover {
+  color: #fcfcfc !important;
+  background-color: rgba(255, 255, 255, 0.15) !important;
+  border-radius: 4px;
+}
+.navbar.slim .nav-link.active {
+  background-color: #fcfcfc !important;
+  color: #000061 !important; /* dark navy text on white — inverted from navbar */
+  border-radius: 4px;
+}
