@@ -51,7 +51,7 @@ contributes:
       preview-links: auto
       include-in-header:
         - kth-favicon.css
-        - text: '<link rel="shortcut icon" type="image/svg+xml" href="favicon.svg"><link rel="stylesheet" href="bootstrap-icons.min.css">'
+        - text: '<link rel="shortcut icon" type="image/svg+xml" href="favicon.svg">'
       format-resources:
         - favicon.svg
       css:
